@@ -17,7 +17,7 @@
           // grab row
           $row = mysql_fetch_array($result);
           // compare hash of user's input against hash that's in database
-          if (crypt($_POST["password"]) == $row["hash"]){
+          if (crypt($_POST["password"], $row["hash"]) == $row["hash"]){
             // remember that user's now logged in by caching user's ID in session
             $_SESSION["id"] = $row["id"];
             // redirect to portfolio
@@ -26,6 +26,8 @@
           else{
             $error2=true;
           }
+        }else{
+          $error3=true;
         }
       }
     }
@@ -52,6 +54,9 @@
       <? endif ?>
       <? if($error2): ?>
         <div style="color:red;">Incorrect password!</div>
+      <? endif ?>
+      <? if($error3): ?>
+        <div style="color:red;">Incorrect username!</div>
       <? endif ?>
       <form action="login.php" method="post">
         <table>
