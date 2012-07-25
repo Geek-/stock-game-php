@@ -11,7 +11,7 @@
 					$error = true;
 				}
 				else{
-					$text = "<div style="text-align:center">	A share of <?= $s->name ?> currently costs $<?= $s->price?>. </div>";
+					$text = "<div style='text-align:center'>	A share of <?= $s->name ?> currently costs $<?= $s->price?>. </div>";
 				}
 			}
 		}
