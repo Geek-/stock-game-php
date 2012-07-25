@@ -3,7 +3,7 @@
     // require common code
     require_once("includes/common.php"); 
     if (isset($_POST["action"])){
-      if (empty($_POST["username"]) || empty($_POST["password"]))
+      if (empty($_POST["username"]) || empty($_POST["password"])){
         $error = true;
       }
       else{
