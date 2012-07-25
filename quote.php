@@ -11,7 +11,7 @@
 					$error = true;
 				}
 				else{
-					$text = "<div style='text-align:center'>	A share of" . $s->name ."currently costs" .$s->price . ". </div>";
+					$text = "<div style='text-align:center'>	A share of " . $s->name ." currently costs $" .$s->price . ". </div>";
 				}
 			}
 		}
@@ -26,6 +26,11 @@
 		<title> $tock: Quote</title>
 	</head>
 	<body>
+		<div id="nav">
+    	<a href="index.php">home</a>
+    	<a href="quote.php">Quote</a>
+    	<a href="logout.php">Logout</a>
+    </div>
 		<div id="top">
 			<a href="index.php"><img alt="C$50 Finance" src="images/logo.png"></a>
 		</div>
@@ -40,20 +45,11 @@
 						<td colspan="2"><input name="action" type="submit" value="Get Quote"></td>
 					</tr>
 				</table>
-				<?
-				if($text){
-					print $text;
-				}
-				?>
+				<? if($text) print $text; ?>
 				<? if($error): ?>
-        <div style="color:red;">Invalid stock symbol!</div>
-      <? endif ?>
+        	<div style="color:red;">Invalid stock symbol!</div>
+      	<? endif ?>
 			</form>
 		</div>
-
-		<div id="bottom">
-			or <a href="register.php"> register</a> for an account
-		</div>
-
 		</body>
 </html>

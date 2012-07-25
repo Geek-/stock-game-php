@@ -29,7 +29,8 @@ div#bottom
     margin: 1em;
     text-align: center;
 }
-div#nav{
+div#nav
+{
     position:fixed;
     top:0px;
     left:0px;

@@ -44,7 +44,11 @@
   </head>
 
   <body>
-
+    <div id="nav">
+      <a href="index.php">home</a>
+      <a href="quote.php">Quote</a>
+      <a href="logout.php">Logout</a>
+    </div>
     <div id="top">
       <a href="index.php"><img alt="C$50 Finance" height="110" src="images/logo.png" width="544"></a>
     </div>
