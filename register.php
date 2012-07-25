@@ -80,7 +80,7 @@
         <? if($error3): ?>
         	<div style="color:red;">Could not add user to the database!</div>
       	<? endif ?>
-      	<? if($error3): ?>
+      	<? if($error4): ?>
         	<div style="color:red;">Passwords do not match!</div>
       	<? endif ?>
 		<div id="bottom">
