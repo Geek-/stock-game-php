@@ -64,7 +64,7 @@
             <td><input name="password" type="password"></td>
           </tr>
           <tr>
-            <td colspan="2"><input type="submit" value="Log In"></td>
+            <td colspan="2"><input name="action" type="submit" value="Log In"></td>
           </tr>
         </table>
       </form>
