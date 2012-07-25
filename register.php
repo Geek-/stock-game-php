@@ -13,14 +13,19 @@
 		$result = mysql_query($sql);
 
 		if(mysql_num_rows($result)==1){
-			$eror2=true;
+			$error2=true;
 		}
-		if(mysql_query($add_user)){
-			$id = mysql_insert_id();
-			$_SESSION["id"]=$id;
-			redirect("index.php");
-		}else{
-			$error3=true;
+		else if($_POST["password"]!=$_POST["password2"]){
+			$error4=true;
+		}
+		else{
+			if(mysql_query($add_user)){
+				$id = mysql_insert_id();
+				$_SESSION["id"]=$id;
+				redirect("index.php");
+			}else{
+				$error3=true;
+			}
 		}
       }
 	}
@@ -74,6 +79,9 @@
       	<? endif ?>
         <? if($error3): ?>
         	<div style="color:red;">Could not add user to the database!</div>
+      	<? endif ?>
+      	<? if($error3): ?>
+        	<div style="color:red;">Passwords do not match!</div>
       	<? endif ?>
 		<div id="bottom">
 			or <a href="login.php">login</a> to an existing account.
