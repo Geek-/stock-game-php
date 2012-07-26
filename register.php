@@ -48,7 +48,7 @@
 
 		<form action="register.php" method="post">
 				<div>
-					<h1>Register :</h1>
+					<h1>Register</h1>
 					<label>
 						<span>User Name</span><input id="username" type="text" name="username" />
 					</label>

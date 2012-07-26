@@ -45,7 +45,7 @@
 
   <body>
     <div id="top">
-      <a href="index.php"><img alt="C$50 Finance" height="110" src="images/logo.png" width="544"></a>
+      <a href="index.php"><img alt="C$50 Finance" src="images/logo.png"></a>
     </div>
       <form action="login.php" method="post">
         <div>
