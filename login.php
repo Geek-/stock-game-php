@@ -68,7 +68,7 @@
             <br>
             <input name="action" type="submit" value="Log In">
             <br>
-            <input type="submit" value="Register" onclick="window.location='register.php'" />        
+            <input type="submit" name="submit1" value="Register" onclick="javascript: form.action='register.php';" />        
           </div>
       </form>
 

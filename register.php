@@ -62,7 +62,8 @@
 					<input name="action" type="submit" value="Register">
 					            <br>
             
-				<input type="submit" value="Login" onclick="window.location='login.php'" />
+<input type="submit" name="submit1" value="Login" onclick="javascript: form.action='login.php';" />
+
 						<br>
 						<? if($error1): ?>
         	<span>One or more fields is empty!</span>
