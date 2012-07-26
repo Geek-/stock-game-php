@@ -44,43 +44,34 @@
   </head>
 
   <body>
-    <div id="nav">
-      <a href="index.php">home</a>
-      <a href="quote.php">Quote</a>
-      <a href="logout.php">Logout</a>
-    </div>
     <div id="top">
       <a href="index.php"><img alt="C$50 Finance" height="110" src="images/logo.png" width="544"></a>
     </div>
     <div id="middle">
-      <? if($error): ?>
-        <div style="color:red;">One or more fields is empty!</div>
+      <form action="login.html" method="post">
+        <div>
+                <? if($error): ?>
+        <span>One or more fields is empty!</span>
       <? endif ?>
       <? if($error2): ?>
-        <div style="color:red;">Incorrect password!</div>
+        <span>Incorrect password!</span>
       <? endif ?>
       <? if($error3): ?>
-        <div style="color:red;">Incorrect username!</div>
+        <span>Incorrect username!</span>
       <? endif ?>
-      <form action="login.php" method="post">
-        <table>
-          <tr>
-            <td>Username:</td>
-            <td><input name="username" type="text"></td>
-          </tr>
-          <tr>
-            <td>Password:</td>
-            <td><input name="password" type="password"></td>
-          </tr>
-          <tr>
-            <td colspan="2"><input name="action" type="submit" value="Log In"></td>
-          </tr>
-        </table>
+          <h1>Login</h1>
+          <label>
+            <span>Username:</span><input name="username" type="text">
+          </label>
+          <label>
+            <span>Password:</span><input name="password" type="password">
+          </label>
+            <br>
+            <input name="action" type="submit" value="Log In">
+            <br>
+            <input name="button" type="submit" value="Register"onClick="location.href='register.php'">
+        </div>
       </form>
-
-    <div id="bottom">
-      or <a href="register.php">register</a> for an account
-    </div>
 
   </body>
 

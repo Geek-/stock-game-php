@@ -11,7 +11,7 @@
 					$error = true;
 				}
 				else{
-					$text = "<div style='text-align:center'>	A share of " . $s->name ." currently costs $" .$s->price . ". </div>";
+					$text = "<span>	A share of " . $s->name ." currently costs $" .$s->price . ". </span>";
 				}
 			}
 		}
@@ -26,30 +26,36 @@
 		<title> $tock: Quote</title>
 	</head>
 	<body>
-		<div id="nav">
-    	<a href="index.php">home</a>
-    	<a href="quote.php">Quote</a>
-    	<a href="logout.php">Logout</a>
-    </div>
+<div id='cssmenu'>
+<ul>
+   <li><a href='index.php'><span>Home</span></a></li>
+   <li><a href='about.php'><span>About</span></a></li>
+   <li><a href='rankings.php'><span>Rankings</span></a></li>
+   <li><a href='sell.php'><span>Sell</span></a></li>
+   <li class='active '><a href='quote.php'><span>Quote</span></a></li>
+   <li><a href='buy.php'><span>Buy</span></a></li>
+   <li><a href='logout.php'><span>Logout</span></a></li>
+</ul>
+</div>
 		<div id="top">
-			<a href="index.php"><img alt="C$50 Finance" src="images/logo.png"></a>
+			<a href="index.html"><img alt="C$50 Finance" src="images/logo.png"></a>
 		</div>
-		<div id="middles">
-			<form action="quote.php" method="post">
-				<table>
-					<tr>
-						<td> Stock Symbol:</td>
-						<td><input name="symbol" type="text"></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input name="action" type="submit" value="Get Quote"></td>
-					</tr>
-				</table>
-				<? if($text) print $text; ?>
-				<? if($error): ?>
-        	<div style="color:red;">Invalid stock symbol!</div>
-      	<? endif ?>
+			<form action="quote.html" method="post">
+				<div>
+				<h1>Get a Stock Quote!</h1>
+					<label>
+						<span> Stock Symbol:</span><input name="symbol" type="text">
+					</label>
+					<br>
+					<input name="action" type="submit" value="Get Quote">
+					<br>
+					<? if($text) print $text; ?>
+					<? if($error): ?>
+        				<span>Invalid stock symbol!</span>
+      				<? endif ?>
+				</div>
 			</form>
+
 		</div>
 		</body>
 </html>

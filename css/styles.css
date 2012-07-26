@@ -9,9 +9,56 @@
 
 
 /* eliminate borders around images in anchor tags */
-a img
+#cssmenu ul
 {
-    border: 0;
+    margin:0;
+    padding:0;
+    list-style-type:none;
+    width:auto;
+    position:relative;
+    display:block;
+    height:30px;
+    font-size:12px;
+    font-weight:bold;
+    background:transparent url(../images/nav_bg.png) repeat-x top left;
+    font-family:Arial, Helvetica, sans-serif;
+    border-bottom:1px solid #000000;
+    border-top:1px solid #000000;
+}
+
+#cssmenu li
+{
+    display:block;
+    float:left;
+    margin:0;
+    padding:0;
+}
+    
+#cssmenu li a
+{
+    display:block;
+    float:left;
+    color:#999999;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 20px 0 20px;
+}
+    
+#cssmenu li a:hover
+{   
+    color:#FFFFFF;
+    height:22px;
+    background:transparent url(../images/nav_bg.png) 0px -30px no-repeat;      
+}
+    
+
+#cssmenu li.active a
+{
+    display:inline;
+    height:22px;
+    background:transparent url(../images/nav_bg.png) 0px -30px no-repeat;  
+    float:left;
+    margin:0;
 }
 
 /* defaults for body */
@@ -20,30 +67,10 @@ body
     background: #ffffff;
     color: #000000;
     font-family: sans-serif;
-    margin: 0;
 }
 
 /* center text in bottom div */
-div#bottom
-{
-    margin: 1em;
-    text-align: center;
-}
-div#nav
-{
-    position:fixed;
-    top:0px;
-    left:0px;
-    right:0px;
-    background-color:F7F7F7;
-    border-bottom:8px;
-    font-size:12px;
-    color:#555555;
-    margin-bottom:8px;
-    padding:8px;
-    text-shadow: 1px 0 #FFFFFF;
-    z-index:1;
-}
+
 /* center text in middle div */
 div#middle
 {
@@ -56,21 +83,58 @@ div#top
     text-align: center;
 }
 
-/* eliminate margins around forms */
-form
-{
-    margin: 0;
+input:focus {
+border: 1px solid #09C;
 }
-
-/* center tables */
-table
-{
-    margin-left: auto;
-    margin-right: auto;
+input.button {
+width:100px;
+position:absolute;
+right:20px;
+bottom:20px;
+background:#09C;
+color:#fff;
+font-family: Tahoma, Geneva, sans-serif;
+height:30px;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+border: 1p solid #999;
 }
-
-/* eliminate borders around table cells */
-td
+input.button:hover {
+background:#fff;
+color:#09C;
+}
+input
 {
-    border: 0;
+width:375px;
+display:block;
+border: 1px solid #999;
+height: 25px;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+}
+form    {
+background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+margin:auto;
+position:relative;
+width:550px;
+height:350px;
+font-family: Tahoma, Geneva, sans-serif;
+font-size: 14px;
+font-style: italic;
+line-height: 24px;
+font-weight: bold;
+color: #09C;
+text-decoration: none;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding:10px;
+border: 1px solid #999;
+border: inset 1px solid #333;
+-webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+-moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }

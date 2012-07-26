@@ -41,51 +41,42 @@
 	</head>
 
 	<body>
-		<div id="nav">
-      		<a href="index.php">home</a>
-      		<a href="quote.php">Quote</a>
-      		<a href="logout.php">Logout</a>
-    	</div>
+
 		<div id="top">
 			<a href="index.php"><img alt="$tock" src="images/logo.png"></a>
 		</div>
 
-		<div id="middle">
-			<form action="register.php" method="post">
-				<table>
-					<tr>
-						<td>Username:</td>
-						<td><input name="username" type="text"></td>
-					</tr>
-					<tr>
-						<td>Password:</td>
-						<td><input name="password" type="password"></td>
-					</tr>
-					<tr>
-						<td>Re-enter Password:</td>
-						<td><input name="password2" type="password"></td>
-					</tr>
-					<tr>
-						<td colspan="2"><input name="action" type="submit" value="Register"></td>
-					</tr>
-				</table>
-			</form>
-		</div>
-		<? if($error1): ?>
-        	<div style="color:red;">One or more fields is empty!</div>
+		<form action="register.html" method="post">
+				<div>
+					<h1>Register :</h1>
+					<label>
+						<span>User Name</span><input id="username" type="text" name="username" />
+					</label>
+					<label>
+						<span>Password</span><input id="password" type="password" name="password" />
+					</label>
+					<label>
+						<span>Re-enter Password</span><input id="password2" type="password" name="password2" />
+					</label>
+					<br>
+					<input name="action" type="submit" value="Register">
+					            <br>
+            <input name="button" type="submit" value="Login"onClick="location.href='login.php'">
+						<br>
+						<? if($error1): ?>
+        	<span>One or more fields is empty!</span>
       	<? endif ?>
         <? if($error2): ?>
-        	<div style="color:red;">user name already taken</div>
+        	<span>user name already taken</span>
       	<? endif ?>
         <? if($error3): ?>
-        	<div style="color:red;">Could not add user to the database!</div>
+        	<span>Could not add user to the database!</span>
       	<? endif ?>
       	<? if($error4): ?>
-        	<div style="color:red;">Passwords do not match!</div>
+        	<span>Passwords do not match!</span>
       	<? endif ?>
-		<div id="bottom">
-			or <a href="login.php">login</a> to an existing account.
-		</div>
 
+				</div>
+			</form>
 	</body>
 </html>
