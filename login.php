@@ -47,7 +47,6 @@
     <div id="top">
       <a href="index.php"><img alt="C$50 Finance" height="110" src="images/logo.png" width="544"></a>
     </div>
-    <div id="middle">
       <form action="login.html" method="post">
         <div>
                 <? if($error): ?>

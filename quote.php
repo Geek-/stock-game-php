@@ -38,9 +38,9 @@
 </ul>
 </div>
 		<div id="top">
-			<a href="index.html"><img alt="C$50 Finance" src="images/logo.png"></a>
+			<a href="index.php"><img alt="C$50 Finance" src="images/logo.png"></a>
 		</div>
-			<form action="quote.html" method="post">
+			<form action="quote.php" method="post">
 				<div>
 				<h1>Get a Stock Quote!</h1>
 					<label>

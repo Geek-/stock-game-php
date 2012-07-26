@@ -46,7 +46,7 @@
 			<a href="index.php"><img alt="$tock" src="images/logo.png"></a>
 		</div>
 
-		<form action="register.html" method="post">
+		<form action="register.php" method="post">
 				<div>
 					<h1>Register :</h1>
 					<label>
