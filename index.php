@@ -1,7 +1,7 @@
 <?
 
     // require common code
-    require_once("includes/common.phpH"); 
+    require_once("includes/common.php"); 
 
 ?>
 
