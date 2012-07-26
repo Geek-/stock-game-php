@@ -68,8 +68,8 @@
             <br>
             <input name="action" type="submit" value="Log In">
             <br>
-            <input name="button" type="submit" value="Register"onClick="location.href='register.php'">
-        </div>
+            <input type="submit" value="Register" onclick="window.location='register.php'" />        
+          </div>
       </form>
 
   </body>

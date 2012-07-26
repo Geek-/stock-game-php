@@ -61,7 +61,8 @@
 					<br>
 					<input name="action" type="submit" value="Register">
 					            <br>
-            <input name="button" type="submit" value="Login"onClick="location.href='login.php'">
+            
+				<input type="submit" value="Login" onclick="window.location='login.php'" />
 						<br>
 						<? if($error1): ?>
         	<span>One or more fields is empty!</span>
