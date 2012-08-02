@@ -11,11 +11,9 @@
         $stock = lookup($symbol);
         $value = $stock->price;
         $num = mysql_query("SELECT shares FROM portfolio WHERE id=$id AND symbol=$symbol");
-        $num = mysql_fetch_array($num);
-        $number_of_shares = $num[0];
-
-        /*if($number_of_shares){
-          /*if($amount < $number_of_shares){
+        if($num = mysql_fetch_array($num)){
+          $number_of_shares = $num[0];
+          if($amount < $number_of_shares){
             mysql_query("UPDATE portfolio SET shares = shares - $amount WHERE id=$id AND symbol=$symbol");
             $total = $value * $amount;
             mysql_query("UPDATE users SET cash = cash + $total WHERE id=$id ");
@@ -24,11 +22,11 @@
             mysql_query("DELETE FROM portfolio WHERE id=$id AND symbol=$symbol");
             $total = $value * $number_of_shares;
             mysql_query("UPDATE users SET cash = cash + $total WHERE id=$id ");
-            $message = "All your shares of " . $symbol . " a total of " . $number_of_shares . " were sold for $ " . $total . "." ;
+            $message = "All your shares of " . $symbol . " a total of " . $number_of_shares . " were sold for $ " . $total . ".";
           }
         }else{
-          $error2 =true;
-        }*/
+          $error2 = true;
+        }
       }
     }
 ?>
