@@ -9,9 +9,10 @@
       else{
         if(preg_match("/^\d+$/", $_POST["amount"])){
           $id=$_SESSION["id"];
-          $amount=mysql_real_escape_string($_POST["amount"]);
+          $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
-          $value = lookup($symbol) -> price;
+          $stock = lookup($symbol);
+          $amount = $stock->price;
           mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, $symbol, $amount) ON DUPLICATE KEY UPDATE shares = shares + VALUES($amount)");
           $total = $value * $number_of_shares;
           mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");

@@ -38,7 +38,7 @@
   <head>
     <link href="images/favicon.ico" type="images/x-icon"rel="shortcut icon">
     <link href="css/styles.css" rel="stylesheet" type="text/css">
-    <title>$tock: Home</title>
+    <title>$tock: Sell</title>
   </head>
 
   <body>
@@ -61,9 +61,10 @@
         <? if($error2): ?>
           <span>You don't have any of those shares!</span>
         <? endif ?>
-        <? if($message){
-         print "<span>" . $message . "</span>";
-        }
+        <? 
+          if($message){
+          echo("<span>" . $message . "</span>");
+          }
         ?>
           <h1>Sell</h1>
           <label>
