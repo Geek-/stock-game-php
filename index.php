@@ -27,7 +27,7 @@
    <li><a href='logout.php'><span>Logout</span></a></li>
 </ul>
 </div>
-    <div id="middle">
+    <div id="center">
       <br>
       <?
         $id=$_SESSION["id"];
