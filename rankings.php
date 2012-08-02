@@ -30,7 +30,7 @@
       <?
         $result = mysql_query("SELECT username, cash FROM users");
         if($result){
-          print("<form><h1>Your Shares</h1>");
+          print("<form><h1>Rankings/h1>");
           while($row = mysql_fetch_array($result)){
             print('<span>');
             print($row[0]);
