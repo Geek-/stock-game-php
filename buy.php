@@ -8,15 +8,21 @@
       }
       else{
         if(preg_match("/^\d+$/", $_POST["amount"])){
+          $cash = mysql_fetch_array(mysql_query("SELECT cash FROM users WHERE id=$id"));
+          $cash = $cash[0];
           $id=intval($_SESSION["id"]);
           $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
           $stock = lookup($symbol);
           $value = $stock->price;
-          mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, '$symbol', $amount) ON DUPLICATE KEY UPDATE shares = shares + $amount");
           $total = $value * $amount;
-          mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
-          $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
+          if($total<$cash){
+            mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, '$symbol', $amount) ON DUPLICATE KEY UPDATE shares = shares + $amount");
+            mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
+            $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
+          }else{
+            $error2=true;
+          }
         }
       }
     }
@@ -46,8 +52,12 @@
 </div>
     <form action="buy.php" method="post">
         <div>
+          <br>
         <? if($error1): ?>
           <span>One or more incomplete fields!</span>
+        <? endif ?>
+        <? if($error2): ?>
+          <span>Not enough cash! Try selling some stocks!</span>
         <? endif ?>
         <? if($message){
          print "<span>" . $message . "</span>";

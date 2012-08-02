@@ -28,6 +28,7 @@
 </ul>
 </div>
     <div id="middle">
+      <br>
       <?
         $id=$_SESSION["id"];
         $result = mysql_query("SELECT symbol, shares FROM portfolio WHERE id=$id");
