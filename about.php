@@ -16,7 +16,13 @@
         Stockgame is a website where you can buy and sell stocks.
         Each user starts with $10,000 and the top 15 users can be viewed on the rankings page.
       </form>
-
+    </div>
+    <div id="botleft">
+      <a href="https://github.com/sam-b/stock/">Source Code</a>
+    </div>
+    <div id="botright">
+      <a href="http://sammy.ws">About me</a>
+    </div>
   </body>
 
 </html>

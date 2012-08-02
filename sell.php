@@ -77,5 +77,11 @@
           <input name="action" type="submit" value="Sell">
         </div>
       </form>
+    <div id="botleft">
+      <a href="https://github.com/sam-b/stock/">Source Code</a>
+    </div>
+    <div id="botright">
+      <a href="http://sammy.ws">About me</a>
+    </div>
   </body>
 </html>

@@ -158,3 +158,15 @@ border: inset 1px solid #333;
 -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
+#botleft
+{
+    position:fixed;
+    left:0;
+    bottom:0;
+}
+#botright
+{
+    position:fixed;
+    right:0;
+    bottom:0;
+}

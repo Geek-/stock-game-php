@@ -71,7 +71,12 @@
             <input type="submit" name="submit1" value="Register" onclick="javascript: form.action='register.php';" />        
           </div>
       </form>
-
+    <div id="botleft">
+      <a href="https://github.com/sam-b/stock/">Source Code</a>
+    </div>
+    <div id="botright">
+      <a href="http://sammy.ws">About me</a>
+    </div>
   </body>
 
 </html>
