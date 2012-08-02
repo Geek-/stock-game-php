@@ -32,7 +32,7 @@
         $id=$_SESSION["id"];
         $result = mysql_query("SELECT symbol, shares FROM portfolio WHERE id=$id");
         if($result){
-          print("<form>");
+          print("<form><h1>Your Shares</h1>");
           while($row = mysql_fetch_array($result)){
             $s = lookup($row["symbol"]);
             print('<span>');
@@ -42,6 +42,9 @@
           }
           print("</form>");
         }
+        $cash = mysql_fetch_array(mysql_query("SELECT cash FROM users WHERE id=$id"));
+        print("You have $");
+        print($cash);
       ?>
     </div>
   </body>
