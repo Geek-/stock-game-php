@@ -8,7 +8,7 @@
       }
       else{
         if(preg_match("/^\d+$/", $_POST["amount"])){
-          $id=$_SESSION["id"];
+          $id=intval($_SESSION["id"]);
           $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
           $stock = lookup($symbol);
