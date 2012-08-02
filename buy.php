@@ -14,15 +14,19 @@
           $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
           $stock = lookup($symbol);
-          $value = $stock->price;
-          $total = $value * $amount;
-          if($total<$cash){
-            mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, '$symbol', $amount) ON DUPLICATE KEY UPDATE shares = shares + $amount");
-            mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
-            $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
-          }else{
-            $error2=true;
+          if($stock){
+            $value = $stock->price;
+            $total = $value * $amount;
+            if($total<$cash){
+              mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, '$symbol', $amount) ON DUPLICATE KEY UPDATE shares = shares + $amount");
+              mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
+              $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
+            }else{
+              $error2=true;
           }
+        }else{
+          $error3=true;
+        }
         }
       }
     }
@@ -59,6 +63,9 @@
         <? endif ?>
         <? if($error2): ?>
           <span>Not enough cash! Try selling some stocks!</span>
+        <? endif ?>
+        <? if($error3): ?>
+          <span>Invalid Stock Symbol!</span>
         <? endif ?>
         <? if($message){
          print "<span>" . $message . "</span>";
