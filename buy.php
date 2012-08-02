@@ -50,6 +50,7 @@
    <li><a href='logout.php'><span>Logout</span></a></li>
 </ul>
 </div>
+    <br>
     <form action="buy.php" method="post">
         <div>
           <br>

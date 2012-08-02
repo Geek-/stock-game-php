@@ -31,8 +31,9 @@
         $result = mysql_query("SELECT username, cash FROM users ORDER BY cash DESC");
         if($result){
           $i = 1;
-          print("<form><h1>Rankings</h1>");
-          while($row = mysql_fetch_array($result) && i<=15){
+          print("<div id="longform"><h1>Rankings</h1>");
+          while($row = mysql_fetch_array($result)){
+            if($i>15) break;
             print('<span>');
             print($i . '. ');
             print($row[0]);
@@ -40,7 +41,7 @@
             print('</span> <br>');
             $i++;
           }
-          print("</form>");
+          print("</div>");
         }
       ?>
     </div>
