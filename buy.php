@@ -12,9 +12,9 @@
           $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
           $stock = lookup($symbol);
-          $amount = $stock->price;
+          $value = $stock->price;
           mysql_query("INSERT INTO portfolio (id, symbol, shares) VALUES($id, $symbol, $amount) ON DUPLICATE KEY UPDATE shares = shares + VALUES($amount)");
-          $total = $value * $number_of_shares;
+          $total = $value * $amount;
           mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
           $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
         }
