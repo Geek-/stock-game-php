@@ -60,10 +60,10 @@
       <? endif ?>
           <h1>Login</h1>
           <label>
-            <span>Username:</span><input name="username" type="text">
+            <span>Username:</span><input name="username" value="<?= htmlspecialchars($_POST["username"]) ?>" type="text">
           </label>
           <label>
-            <span>Password:</span><input name="password" type="password">
+            <span>Password:</span><input name="password" value="<?= htmlspecialchars($_POST["password"]) ?>" type="password">
           </label>
             <br>
             <input name="action" type="submit" value="Log In">

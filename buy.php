@@ -66,10 +66,10 @@
         ?>
           <h1>Buy</h1>
           <label>
-            <span>Stock Symbol</span><input id="symbol" type="text" name="symbol" />
+            <span>Stock Symbol</span><input id="symbol" type="text" value="<?= htmlspecialchars($_POST["symbol"]) ?>" name="symbol" />
           </label>
           <label>
-            <span>Amount</span><input id="amount" type="number" name="amount" min="1" step="1" />
+            <span>Amount</span><input id="amount" type="number" value="<?= htmlspecialchars($_POST["amount"]) ?>" name="amount" min="1" step="1" />
           </label>
           <br>
           <input name="action" type="submit" value="Buy">

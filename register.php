@@ -1,15 +1,15 @@
 <?
 	require_once("includes/common.php");
 	if (isset($_POST["action"])){
-      if (empty($_POST["username"])||empty($_POST["password"])||empty($_POST["password2"])){
+      if (empty($_POST["username"])||empty($_POST["password"])||empty($_POST["password2"])||empty($_POST["email"])){
         $error1 = true;
       }
       else{
       	$username = mysql_real_escape_string($_POST["username"]);
 		$hash = crypt($_POST["password"]);
-
+		$email=mysql_real_escape_string($_POST["email"]);
 		$sql = "SELECT * FROM users WHERE username='$username'";
-		$add_user = "INSERT INTO users (username, hash, cash) VALUES('$username', '$hash', 10000.00)";
+		$add_user = "INSERT INTO users (username, hash, cash, email) VALUES('$username', '$hash', 10000.00, '$email')";
 		$result = mysql_query($sql);
 
 		if(mysql_num_rows($result)==1){
@@ -18,7 +18,9 @@
 		else if($_POST["password"]!=$_POST["password2"]){
 			$error4=true;
 		}
-		else{
+		else if(validEmail($email)==false){
+			$error5=true;
+		}else{
 			if(mysql_query($add_user)){
 				$id = mysql_insert_id();
 				$_SESSION["id"]=$id;
@@ -50,13 +52,17 @@
 				<div>
 					<h1>Register</h1>
 					<label>
-						<span>User Name</span><input id="username" type="text" name="username" />
+						<span>User Name</span><input id="username" type="text" value="<?= htmlspecialchars($_POST["username"]) ?>" name="username" />
 					</label>
 					<label>
-						<span>Password</span><input id="password" type="password" name="password" />
+						<span>Password</span><input id="password" type="password" value="<?= htmlspecialchars($_POST["password"]) ?>" name="password" />
 					</label>
 					<label>
-						<span>Re-enter Password</span><input id="password2" type="password" name="password2" />
+					<label>
+						<span>Re-enter Password</span><input id="password2" type="password" value="<?= htmlspecialchars($_POST["password2"]) ?>" name="password2" />
+					</label>
+					<label>
+						<span>E-mail address</span><input id="email" type="text" value="<?= htmlspecialchars($_POST["email"]) ?>" name="email" />
 					</label>
 					<br>
 					<input name="action" type="submit" value="Register">
@@ -77,7 +83,9 @@
       	<? if($error4): ?>
         	<span>Passwords do not match!</span>
       	<? endif ?>
-
+      	<? if($error5): ?>
+        	<span>Invalid e-mail address!</span>
+      	<? endif ?>
 				</div>
 			</form>
 			    <div id="botleft">

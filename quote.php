@@ -44,7 +44,7 @@
 				<div>
 				<h1>Get a Stock Quote!</h1>
 					<label>
-						<span> Stock Symbol:</span><input name="symbol" type="text">
+						<span> Stock Symbol:</span><input name="symbol" value="<?= htmlspecialchars($_POST["symbol"]) ?>" type="text">
 					</label>
 					<br>
 					<input name="action" type="submit" value="Get Quote">
