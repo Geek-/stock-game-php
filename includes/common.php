@@ -33,10 +33,10 @@
 
     // connect to database server
     if (($connection = @mysql_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD)) === false)
-        apologize("Could not connect to database server.");
+        redirect("error.php");
 
     // select database
     if (@mysql_select_db(DB_NAME, $connection) === false)
-        apologize("Could not select database (" . DB_NAME . ").");
+        redirect("error.php");
 
 ?>
