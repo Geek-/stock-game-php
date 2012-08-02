@@ -28,7 +28,7 @@
           $error2 =true;
         }
       }
-
+    }
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +67,7 @@
         ?>
           <h1>Sell</h1>
           <label>
-            <span>Stock Symbol</span><input id="symbol" type="text" name="username" />
+            <span>Stock Symbol</span><input id="symbol" type="text" name="symbol" />
           </label>
           <label>
             <span>Amount</span><input id="amount" type="number" name="amount" min="1" step="1" />
