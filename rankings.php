@@ -32,7 +32,10 @@
         if($result){
           $i =1;
           print("<div id='longform'><h1>Rankings</h1>");
-          while($row = mysql_fetch_array($result) && $i <16){
+          while($row = mysql_fetch_array($result)){
+            if($i>16){
+              break;
+            }
             print('<span>');
             print($i .'. ');
             print($row[0]);
