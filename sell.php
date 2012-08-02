@@ -11,7 +11,7 @@
         $stock = lookup($symbol);
         $value = $stock->price;
         if($num = mysql_query("SELECT shares FROM portfolio WHERE id=$id AND symbol=$symbol")){
-          $num = mysql_fetch_array($num)
+          $num = mysql_fetch_array($num);
           $number_of_shares = $num[0];
           if($amount < $number_of_shares){
             mysql_query("UPDATE portfolio SET shares = shares - $amount WHERE id=$id AND symbol=$symbol");
