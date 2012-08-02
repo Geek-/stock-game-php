@@ -75,5 +75,7 @@
           </label>
           <br>
           <input name="action" type="submit" value="Sell">
+        </div>
+      </form>
   </body>
 </html>
