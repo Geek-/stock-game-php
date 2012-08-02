@@ -28,9 +28,9 @@
 </div>
     <div id="middle">
       <?
-        $result = mysql_query("SELECT username, cash FROM users ORDER BY cash");
+        $result = mysql_query("SELECT username, cash FROM users ORDER BY cash DESC");
         if($result){
-          print("<form><h1>Rankings/h1>");
+          print("<form><h1>Rankings</h1>");
           while($row = mysql_fetch_array($result)){
             print('<span>');
             print($row[0]);
