@@ -33,11 +33,10 @@
           $i = 1;
           print("<div id="longform"><h1>Rankings</h1>");
           while($row = mysql_fetch_array($result)){
-            if($i>15) break;
             print('<span>');
             print($i . '. ');
             print($row[0]);
-            print('   $' . $row[1]);
+            print(' $' . $row[1]);
             print('</span> <br>');
             $i++;
           }
