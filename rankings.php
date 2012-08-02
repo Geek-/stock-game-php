@@ -28,14 +28,17 @@
 </div>
     <div id="middle">
       <?
-        $result = mysql_query("SELECT username, cash FROM users DESC");
+        $result = mysql_query("SELECT username, cash FROM users ORDER BY cash DESC");
         if($result){
-          print("<form><h1>Rankings/h1>");
+          $i =1;
+          print("<form><h1>Rankings</h1>");
           while($row = mysql_fetch_array($result)){
             print('<span>');
+            print($i .' .');
             print($row[0]);
             print(' ' . $row[1] . '.');
             print('</span> <br>');
+            $i++;
           }
           print("</form>");
         }
