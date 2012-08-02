@@ -44,10 +44,10 @@
   <body>
 <div id='cssmenu'>
 <ul>
-   <li class='active '><a href='index.php'><span>Home</span></a></li>
+   <li><a href='index.php'><span>Home</span></a></li>
    <li><a href='about.php'><span>About</span></a></li>
    <li><a href='rankings.php'><span>Rankings</span></a></li>
-   <li><a href='sell.php'><span>Sell</span></a></li>
+   <li class='active '><a href='sell.php'><span>Sell</span></a></li>
    <li><a href='quote.php'><span>Quote</span></a></li>
    <li><a href='buy.php'><span>Buy</span></a></li>
    <li><a href='logout.php'><span>Logout</span></a></li>
