@@ -43,6 +43,7 @@
           print("</form>");
         }
         $cash = mysql_fetch_array(mysql_query("SELECT cash FROM users WHERE id=$id"));
+        $cash = $cash[0];
         print("You have $");
         print($cash);
       ?>

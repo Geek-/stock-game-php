@@ -4,29 +4,6 @@
     if (isset($_POST["action"])){
       if (empty($_POST["symbol"])||empty($_POST["amount"])){
         $error1 = true;
-      }else{
-        $id=intval($_SESSION["id"]);
-        $amount=intval($_POST["amount"]);
-        $symbol=mysql_real_escape_string($_POST["symbol"]);
-        $stock = lookup($symbol);
-        $value = $stock->price;
-        $num = mysql_query("SELECT shares FROM portfolio WHERE id=$id AND symbol=$symbol");
-        $number_of_shares = intval(mysql_fetch_array($num)[0]);
-        if($number_of_shares){
-          /*if($amount < $number_of_shares){
-            mysql_query("UPDATE portfolio SET shares = shares - $amount WHERE id=$id AND symbol=$symbol");
-            $total = $value * $amount;
-            mysql_query("UPDATE users SET cash = cash + $total WHERE id=$id ");
-            $message = $amount . " shares of " . $symbol . " were sold for $" . $total . ".";
-          }else{
-            mysql_query("DELETE FROM portfolio WHERE id=$id AND symbol=$symbol");
-            $total = $value * $number_of_shares;
-            mysql_query("UPDATE users SET cash = cash + $total WHERE id=$id ");
-            $message = "All your shares of " . $symbol . " a total of " . $number_of_shares . " were sold for $ " . $total . "." ;
-          }*/
-        }else{
-          $error2 =true;
-        }
       }
     }
 ?>
@@ -58,14 +35,6 @@
         <? if($error1): ?>
           <span>One or more incomplete fields!</span>
         <? endif ?>
-        <? if($error2): ?>
-          <span>You don't have any of those shares!</span>
-        <? endif ?>
-        <? 
-          if($message){
-          echo("<span>" . $message . "</span>");
-          }
-        ?>
           <h1>Sell</h1>
           <label>
             <span>Stock Symbol</span><input id="symbol" type="text" name="symbol" />
