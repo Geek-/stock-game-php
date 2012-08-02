@@ -8,9 +8,9 @@
       }
       else{
         if(preg_match("/^\d+$/", $_POST["amount"])){
+          $id=intval($_SESSION["id"]);
           $cash = mysql_fetch_array(mysql_query("SELECT cash FROM users WHERE id=$id"));
           $cash = $cash[0];
-          $id=intval($_SESSION["id"]);
           $amount=intval($_POST["amount"]);
           $symbol=mysql_real_escape_string($_POST["symbol"]);
           $stock = lookup($symbol);

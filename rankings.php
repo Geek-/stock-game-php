@@ -27,16 +27,11 @@
 </ul>
 </div>
     <div id="middle">
-      <br>
       <?
-        $result = mysql_query("SELECT username, cash FROM users");
+        $result = mysql_query("SELECT username, cash FROM users ORDER BY cash");
         if($result){
           print("<form><h1>Rankings/h1>");
-          $all_users = Array();
           while($row = mysql_fetch_array($result)){
-            array_push($all_users,$row);
-          }
-          foreach ($all_users as $row){
             print('<span>');
             print($row[0]);
             print(' ' . $row[1] . '.');
