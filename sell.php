@@ -35,6 +35,14 @@
         <? if($error1): ?>
           <span>One or more incomplete fields!</span>
         <? endif ?>
+        <? if($error2): ?>
+          <span>You don't have any of those shares!</span>
+        <? endif ?>
+        <? 
+          if($message){
+          echo("<span>" . $message . "</span>");
+          }
+        ?>
           <h1>Sell</h1>
           <label>
             <span>Stock Symbol</span><input id="symbol" type="text" name="symbol" />
