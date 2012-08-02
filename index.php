@@ -32,13 +32,15 @@
         $id=$_SESSION["id"];
         $result = mysql_query("SELECT symbol, shares FROM portfolio WHERE id=$id");
         if($result){
+          print("<form>");
           while($row = mysql_fetch_array($result)){
             $s = lookup($row["symbol"]);
-            print('<tr>');
-            print('<td>' . $s->name . '</td>');
-            print('<td>' . $row["shares"] . '</td>');
-            print('</tr>');
+            print('<span>');
+            print($s->name);
+            print(' ' . $row["shares"] . '.');
+            print('</span> <br>');
           }
+          print("</form>");
         }
       ?>
     </div>

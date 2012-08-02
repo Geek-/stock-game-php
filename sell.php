@@ -1,23 +1,23 @@
 <?
-
     // require common code
     require_once("includes/common.php");
     if (isset($_POST["action"])){
       if (empty($_POST["symbol"])||empty($_POST["amount"])){
         $error1 = true;
-      }
-      else{
-        $id=$_SESSION["id"];
-        $amount=mysql_real_escape_string($_POST["amount"]);
+      }else{
+        $id=intval($_SESSION["id"]);
+        $amount=intval($_POST["amount"]);
         $symbol=mysql_real_escape_string($_POST["symbol"]);
-        $value = lookup($symbol) -> price;
-        $number_of_shares = mysql_query("SELECT shares FROM portfolio WHERE id=$id AND symbol=$symbol");
+        $stock = lookup($symbol);
+        $value = $stock->price;
+        $num = mysql_query("SELECT shares FROM portfolio WHERE id=$id AND symbol=$symbol");
+        $number_of_shares = intval(mysql_fetch_array($num)[0]);
         if($number_of_shares){
           if($amount < $number_of_shares){
             mysql_query("UPDATE portfolio SET shares = shares - $amount WHERE id=$id AND symbol=$symbol");
             $total = $value * $amount;
             mysql_query("UPDATE users SET cash = cash + $total WHERE id=$id ");
-            $message = $amount . " shares of " . $symbol . " were sold for $" $total . ".";
+            $message = $amount . " shares of " . $symbol . " were sold for $" . $total . ".";
           }else{
             mysql_query("DELETE FROM portfolio WHERE id=$id AND symbol=$symbol");
             $total = $value * $number_of_shares;
