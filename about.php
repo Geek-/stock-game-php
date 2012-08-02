@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html>
@@ -14,7 +13,8 @@
       <a href="index.php"><img alt="C$50 Finance" src="images/logo.png"></a>
     </div>
       <form>
-        Stuff about Stuff.
+        Stockgame is a website where you can buy and sell stocks.
+        Each user starts with $10,000 and the top 15 users can be viewed on the rankings page.
       </form>
 
   </body>
