@@ -3,7 +3,7 @@
     require_once("includes/common.php");
     if (isset($_POST["action"])){
       if (empty($_POST["symbol"])||empty($_POST["amount"])){
-        $error1 = true;
+        $message = "One or more incomplete fields!";
       }else{
         $id=intval($_SESSION["id"]);
         $amount=intval($_POST["amount"]);
@@ -25,7 +25,7 @@
             $message = "All your shares of " . $symbol . " a total of " . $number_of_shares . " were sold for $ " . $total . ".";
           }
         }else{
-          $error2 = true;
+          $message = "You don't have any of those shares!";
         }
       }
     }
@@ -55,17 +55,7 @@
 </div>
     <form action="sell.php" method="post">
         <div>
-        <? if($error1): ?>
-          <span>One or more incomplete fields!</span>
-        <? endif ?>
-        <? if($error2): ?>
-          <span>You don't have any of those shares!</span>
-        <? endif ?>
-        <? 
-          if($message){
-          echo("<span>" . $message . "</span>");
-          }
-        ?>
+        <? if($message) print("<span>" . $message . "</span>"); ?>
           <h1>Sell</h1>
           <label>
             <span>Stock Symbol</span><input id="symbol" type="text" value="<?= htmlspecialchars($_POST["symbol"]) ?>" name="symbol" />

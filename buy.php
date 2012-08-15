@@ -4,7 +4,7 @@
     require_once("includes/common.php");
     if (isset($_POST["action"])){
       if (empty($_POST["symbol"])||empty($_POST["amount"])){
-        $error1 = true;
+        $message = "One or more incomplete fields!";
       }
       else{
         if(preg_match("/^\d+$/", $_POST["amount"])){
@@ -22,10 +22,10 @@
               mysql_query("UPDATE users SET cash = cash - $total WHERE id=$id ");
               $message = "You bought " . $amount . " shares of " . $symbol . " for $". $total ."." ;
             }else{
-              $error2=true;
+              $message="Not enough cash! Try selling some stocks!";
           }
         }else{
-          $error3=true;
+          $message="Invalid Stock Symbol!";
         }
         }
       }
@@ -58,19 +58,9 @@
     <form action="buy.php" method="post">
         <div>
           <br>
-        <? if($error1): ?>
-          <span>One or more incomplete fields!</span>
-        <? endif ?>
-        <? if($error2): ?>
-          <span>Not enough cash! Try selling some stocks!</span>
-        <? endif ?>
-        <? if($error3): ?>
-          <span>Invalid Stock Symbol!</span>
-        <? endif ?>
         <? if($message){
          print "<span>" . $message . "</span>";
-        }
-        ?>
+        }?>
           <h1>Buy</h1>
           <label>
             <span>Stock Symbol</span><input id="symbol" type="text" value="<?= htmlspecialchars($_POST["symbol"]) ?>" name="symbol" />

@@ -4,7 +4,7 @@
     require_once("includes/common.php"); 
     if (isset($_POST["action"])){
       if (empty($_POST["username"]) || empty($_POST["password"])){
-        $error = true;
+        $message = "One or more fields is empty!";
       }
       else{
         $username = mysql_real_escape_string($_POST["username"]);
@@ -24,10 +24,10 @@
             redirect("index.php");
           }
           else{
-            $error2=true;
+            $message="Incorrect password!";
           }
         }else{
-          $error3=true;
+          $message="Incorrect username!";
         }
       }
     }
@@ -49,15 +49,9 @@
     </div>
       <form action="login.php" method="post">
         <div>
-                <? if($error): ?>
-        <span>One or more fields is empty!</span>
-      <? endif ?>
-      <? if($error2): ?>
-        <span>Incorrect password!</span>
-      <? endif ?>
-      <? if($error3): ?>
-        <span>Incorrect username!</span>
-      <? endif ?>
+          <? if($message){
+            print "<span>" . $message . "</span>";
+          }?>
           <h1>Login</h1>
           <label>
             <span>Username:</span><input name="username" value="<?= htmlspecialchars($_POST["username"]) ?>" type="text">

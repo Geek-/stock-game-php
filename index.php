@@ -43,9 +43,7 @@
             print(' ' . $row["shares"] . '.');
             print('</span> <br>');
           }
-          print("You have $");
-          print($cash);
-          print("</form>");
+          print("You have $" . $cash . "</form>");
         }
       ?>
     </div>

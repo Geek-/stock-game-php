@@ -2,7 +2,7 @@
 	require_once("includes/common.php");
 	if (isset($_POST["action"])){
       if (empty($_POST["username"])||empty($_POST["password"])||empty($_POST["password2"])||empty($_POST["email"])){
-        $error1 = true;
+        $message = "One or more fields is empty!";
       }
       else{
       	$username = mysql_real_escape_string($_POST["username"]);
@@ -11,22 +11,21 @@
 		$sql = "SELECT * FROM users WHERE username='$username'";
 		$add_user = "INSERT INTO users (username, hash, cash, email) VALUES('$username', '$hash', 10000.00, '$email')";
 		$result = mysql_query($sql);
-
 		if(mysql_num_rows($result)==1){
-			$error2=true;
+			$message="user name already taken!";
 		}
 		else if($_POST["password"]!=$_POST["password2"]){
-			$error4=true;
+			$message="Passwords do not match!";
 		}
 		else if(validEmail($email)==false){
-			$error5=true;
+			$message="Invalid e-mail address!";
 		}else{
 			if(mysql_query($add_user)){
 				$id = mysql_insert_id();
 				$_SESSION["id"]=$id;
 				redirect("index.php");
 			}else{
-				$error3=true;
+				$message="Could not add user to the database!";
 			}
 		}
       }
@@ -71,21 +70,7 @@
 <input type="submit" name="submit1" value="Login" onclick="javascript: form.action='login.php';" />
 
 						<br>
-						<? if($error1): ?>
-        	<span>One or more fields is empty!</span>
-      	<? endif ?>
-        <? if($error2): ?>
-        	<span>user name already taken</span>
-      	<? endif ?>
-        <? if($error3): ?>
-        	<span>Could not add user to the database!</span>
-      	<? endif ?>
-      	<? if($error4): ?>
-        	<span>Passwords do not match!</span>
-      	<? endif ?>
-      	<? if($error5): ?>
-        	<span>Invalid e-mail address!</span>
-      	<? endif ?>
+						<? if($message) print("<span>" . $message . "</span>"); ?>
 				</div>
 			</form>
 			    <div id="botleft">

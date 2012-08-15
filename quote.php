@@ -2,16 +2,16 @@
 	require_once("includes/common.php");
     if (isset($_POST["action"])){
       if (empty($_POST["symbol"])){
-        $error = true;
+        $message = "Invalid stock symbol!";
       }
       else{
 				$symbol = mysql_real_escape_string($_POST["symbol"]);
 				$s = lookup($symbol);
 				if($s==NULL){
-					$error = true;
+					$message = "Invalid stock symbol!";
 				}
 				else{
-					$text = "<span>	A share of " . $s->name ." currently costs $" .$s->price . ". </span>";
+					$message = "<span>	A share of " . $s->name ." currently costs $" .$s->price . ". </span>";
 				}
 			}
 		}
@@ -49,10 +49,7 @@
 					<br>
 					<input name="action" type="submit" value="Get Quote">
 					<br>
-					<? if($text) print $text; ?>
-					<? if($error): ?>
-        				<span>Invalid stock symbol!</span>
-      				<? endif ?>
+					<? if($message) print $text; ?>
 				</div>
 			</form>
 
